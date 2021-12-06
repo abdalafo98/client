@@ -4,7 +4,10 @@ const login = {
   namespace: true,
   actions: {
     async LOGIN({ commit }, payload) {
-      const result = await axios.post("http://localhost:5000/login", payload);
+      const result = await axios.post(
+        "https://services.agentsoncloud.com/login",
+        payload
+      );
       console.log(result);
     },
   },
