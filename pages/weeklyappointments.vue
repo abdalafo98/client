@@ -7,6 +7,7 @@
           <div class="calendar-header">
             <div class="left"></div>
             <!-- <FiltterType @fillter-value="filterValue" /> -->
+            <FiltterType />
             <div class="right">
               <RightSide />
             </div>
@@ -15,22 +16,19 @@
       </div>
       <div class="calendar-view">
         <div class="middle">
-          <div class="son">
-            <IconArrowLeft />
+          <!-- <Menu /> -->
+          <div />
+          <CalenderNavBar />
 
-            <h2 class="week-from-to">
-              <WeekFromTo />
-            </h2>
-            <IconsArrowRight />
-          </div>
-        </div>
-
-        <!-- <TableOfWeeklyAppintments
+          <!-- <TableOfWeeklyAppintments
           :number="7"
           :startDate="startDate"
           :list="list"
           :date="onClickDate"
         /> -->
+        </div>
+        <!-- <TableHeaderDate /> -->
+        <TableWeeklyAppoinmetns />
       </div>
     </div>
   </div>
@@ -39,9 +37,12 @@
 <script>
 import Header from "../components/weeklyappointments/header.vue";
 import RightSide from "../components/weeklyappointments/RightSide.vue";
-import IconArrowLeft from "../components/weeklyappointments/IconArrowLeft.vue";
-import IconsArrowRight from "../components/weeklyappointments/IconsArrowRight.vue";
-import WeekFromTo from "../components/weeklyappointments/WeekFromTo.vue";
+import TableHeaderDate from "../components/weeklyappointments/TableHeaderDate.vue";
+import CalenderNavBar from "../components/weeklyappointments/CalenderNavBar.vue";
+import Menu from "../components/weeklyappointments/Menu.vue";
+import TableWeeklyAppoinmetns from "../components/weeklyappointments/TableWeeklyAppoinmetns.vue";
+import FilterRadioButton from "../components/weeklyappointments/FilterRadioButton.vue";
+import FiltterType from "../components/weeklyappointments/FiltterType.vue";
 export default {
   data() {
     return {};
@@ -51,11 +52,7 @@ export default {
       startDate: this.getStratDate(new Date(), 6),
     });
   },
-  computed: {
-    getDate() {
-      return this.$store.getters.getStartDate;
-    },
-  },
+
   methods: {
     getStratDate(date, day) {
       var curr = new Date(date); // get current date
@@ -66,11 +63,47 @@ export default {
       return curr;
     },
   },
-  components: { Header, RightSide, IconArrowLeft, IconsArrowRight, WeekFromTo },
+  components: {
+    Header,
+    RightSide,
+    TableHeaderDate,
+    CalenderNavBar,
+    Menu,
+    TableWeeklyAppoinmetns,
+    FilterRadioButton,
+    FiltterType,
+  },
 };
 </script>
 
 <style>
+.list-b {
+  border-top-left-radius: 10px;
+  background: #eceef8;
+  font-size: 12px;
+}
+.list-b:hover {
+  background-color: #ccd5ff;
+}
+.drop-svg {
+  float: right;
+}
+.drop-svg:hover {
+  transform: rotate(180deg);
+}
+.middle {
+  text-align: center;
+  font-family: sans-serif;
+  letter-spacing: 1.8px;
+  background-color: #fff;
+  border-bottom-style: inset;
+  border-radius: 10px;
+  margin-bottom: 0.05%;
+  padding-right: 20px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  display: flex;
+}
 .body {
   margin: 0%;
 }
@@ -151,13 +184,7 @@ export default {
   font-size: 20px;
   font-family: sans-serif;
 }
-.son {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+
 .button-group {
   position: relative;
   display: inline-flex;
