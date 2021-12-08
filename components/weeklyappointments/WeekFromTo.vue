@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="week-from-to">
     {{ weekFromTo }}
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 
       this.$store.dispatch("addDays", {
         date: this.$store.getters.getStartDate,
-        num: 7,
+        num: 6,
         status: "change_startDate2",
       });
 
@@ -27,8 +27,14 @@ export default {
       return `${from} - ${to}`;
     },
   },
-  created() {},
 };
 </script>
 
-<style></style>
+<style>
+.week-from-to {
+  color: #949191;
+  font-size: 18px;
+  font-weight: 100;
+  padding-top: 9px;
+}
+</style>

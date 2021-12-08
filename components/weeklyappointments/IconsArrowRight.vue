@@ -1,20 +1,18 @@
 <template>
   <div @click="increaseValue" class="arrow2">
-    <a
+    <a href="#"
       ><i class="arrow-icon-2"></i
       ><svg
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        aria-hidden="true"
-        role="img"
-        width="35"
-        height="35"
-        preserveAspectRatio="xMidYMid meet"
-        viewBox="0 0 24 24"
+        width="16"
+        height="16"
+        fill="#949191"
+        class="bi bi-chevron-right"
+        viewBox="0 0 16 16"
       >
         <path
-          fill="#6f9df2"
-          d="M10.46 18a2.23 2.23 0 0 1-.91-.2a1.76 1.76 0 0 1-1.05-1.59V7.79A1.76 1.76 0 0 1 9.55 6.2a2.1 2.1 0 0 1 2.21.26l5.1 4.21a1.7 1.7 0 0 1 0 2.66l-5.1 4.21a2.06 2.06 0 0 1-1.3.46z"
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
         /></svg
     ></a>
   </div>
@@ -31,6 +29,7 @@ export default {
         num: 7,
         status: "change_startDate",
       });
+      this.$store.dispatch("getAppoinments");
     },
   },
 };
