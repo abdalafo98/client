@@ -16,7 +16,13 @@ export default {
       let date = new Date(this.$store.getters.getStartDate);
       console.log("date ", date);
       date.setDate(date.getDate() + index);
-      return date.toString();
+      return (
+        date.toLocaleString("en-us", { weekday: "short" }) +
+        "\n" +
+        date.toLocaleString("en-us", { month: "short" }) +
+        " " +
+        date.getDate()
+      );
     },
   },
 };

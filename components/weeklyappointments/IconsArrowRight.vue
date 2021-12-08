@@ -1,5 +1,5 @@
 <template>
-  <div @click="increaseValue" class="arrow2">
+  <div @click.prevent="increaseValue" class="arrow2">
     <a href="#"
       ><i class="arrow-icon-2"></i
       ><svg
